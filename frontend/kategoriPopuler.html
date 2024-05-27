@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Categories</title>
+    <link rel="stylesheet" href="kategoripopuler.css">
+</head>
+<body>
+    <h2>10 Kategori Buku Populer</h2>
+    <table class="table-kategori">
+        <thead class="thead-purple-kategori">
+            <tr>
+                <th>Kategori</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="category-body">
+            <!-- Data kategori akan dimasukkan di sini -->
+            <tr>
+                <td>Akuntansi</td>
+                <td><button onclick="redirectToPopulerAK()">Lihat Data</button></td>
+            </tr>
+            <tr>
+                <td>Kumpulan Karya Sastra</td>
+                <td><button onclick="redirectToPopulerSastra()">Lihat Data</button></td>
+            </tr>
+            <tr>
+                <td>Manajemen Keuangan</td>
+                <td><button onclick="redirectToPopulerMK()">Lihat Data</button></td>
+            </tr>
+            <tr>
+                <td>Ekonomi Keuangan</td>
+                <td><button onclick="redirectToPopulerEK()">Lihat Data</button></td>
+            </tr>
+            <tr>
+                <td>Manajemen</td>
+                <td><button onclick="redirectToPopulerMNJ()">Lihat Data</button></td>
+            </tr>
+            <tr>
+                <td>Audit Keuangan</td>
+                <td><button onclick="redirectToPopulerAudit()">Lihat Data</button></td>
+            </tr>
+            <tr>
+                <td>Manajemen Pemasaran</td>
+                <td><button onclick="redirectToPopulerMP()">Lihat Data</button></td>
+            </tr>
+            <tr>
+                <td>Perpajakan</td>
+                <td><button onclick="redirectToPopulerPajak()">Lihat Data</button></td>
+            </tr>
+            <tr>
+                <td>Laporan Keuangan</td>
+                <td><button onclick="redirectToPopulerLK()">Lihat Data</button></td>
+            </tr>
+            <tr>
+                <td>Marketing</td>
+                <td><button onclick="redirectToPopulerMarketing()">Lihat Data</button></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script>
+        // Fungsi untuk mengarahkan ke halaman populer-ak.html
+        function redirectToPopulerAK() {
+            window.location.href = 'populer-ak.html';
+        }
+
+        function redirectToPopulerSastra() {
+            window.location.href = 'populer-sastra.html';
+        }
+
+        function redirectToPopulerMK() {
+            window.location.href = 'populer-mk.html';
+        }
+
+        function redirectToPopulerEK() {
+            window.location.href = 'populer-ek.html';
+        }
+
+        function redirectToPopulerMNJ() {
+            window.location.href = 'populer-mnj.html';
+        }
+
+        function redirectToPopulerAudit() {
+            window.location.href = 'populer-audit.html';
+        }
+
+        function redirectToPopulerMP() {
+            window.location.href = 'populer-mp.html';
+        }
+
+        function redirectToPopulerPajak() {
+            window.location.href = 'populer-pajak.html';
+        }
+
+        function redirectToPopulerLK() {
+            window.location.href = 'populer-lk.html';
+        }
+
+        function redirectToPopulerMarketing() {
+            window.location.href = 'populer-marketing.html';
+        }
+    </script>
+</body>
+</html>

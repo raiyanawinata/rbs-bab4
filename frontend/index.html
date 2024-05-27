@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #chartContainer, #categoryContainer {
+            width: 50%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            float: left; /* Membuatnya mengambang ke kiri */
+            overflow: hidden; /* Menyembunyikan pengguliran */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%; /* Mengatur tinggi iframe sesuai dengan tinggi layar */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="navbarNav.html" style="width: 100%; height: 100px;"></iframe>
+    <iframe src="tableNav.html" style="width: 100%; height: 50%;"></iframe>
+    <div id="chartContainer">
+        <iframe src="chartNav.html"></iframe>
+    </div>
+    <div id="categoryContainer">
+        <iframe src="kategoriPopuler.html"></iframe>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/* CSS untuk tabel kategori */
+.table-kategori {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Gaya header tabel */
+.thead-purple-kategori {
+    background-color: #7A14A8;
+    color: white;
+}
+
+.thead-purple-kategori th {
+    padding: 10px;
+}
+
+/* Gaya baris tabel */
+.table-kategori tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-kategori tr:hover {
+    background-color: #ddd;
+}
+
+/* Gaya sel dalam tabel */
+.table-kategori td, .table-kategori th {
+    border: 1px solid #7A14A8;
+    padding: 8px;
+}
+
+/* Tombol "Lihat Data" */
+.table-kategori button {
+    background-color: #7A14A8;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.table-kategori button:hover {
+    background-color: #6a0080;
+}

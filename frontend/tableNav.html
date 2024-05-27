@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Table</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Masukkan Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <table class="table">
+            <thead class="thead-purple">
+                <tr>
+                    <th>No</th> <!-- Tambah kolom nomor -->
+                    <th>Judul Buku</th>
+                    <th>Penulis</th>
+                    <th>Kategori</th>
+                    <th>Tahun Terbit</th>
+                    <th>Total Dipinjam</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Data dari Flask akan dimasukkan di sini -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container mt-4">
+        <canvas id="myChart" width="400" height="400"></canvas> <!-- Tambahkan elemen canvas untuk chart -->
+    </div>
+
+    <script>
+        // Lakukan permintaan GET ke endpoint Flask
+        fetch('http://127.0.0.1:5000/populer')
+            .then(response => response.json())
+            .then(data => {
+                // Ambil elemen tbody
+                const tableBody = document.getElementById('table-body');
+
+                // Iterasi melalui data dan tambahkan baris baru ke dalam tabel
+                data.forEach((book, index) => { // Tambahkan index sebagai nomor
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td>${index + 1}</td> <!-- Nomor akan dimulai dari 1 -->
+                        <td>${book.judul}</td>
+                        <td>${book.penulis}</td>
+                        <td>${book.kategori}</td>
+                        <td>${book.tahun_terbit}</td>
+                        <td>${book.total_peminjam}</td>
+                    `;
+                    tableBody.appendChild(newRow);
+                });
+
+                // Membuat diagram dari data kategori
+                createChart(data);
+            })
+            .catch(error => console.error('Error:', error));
+
+    </script>
+</body>
+</html>

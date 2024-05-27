@@ -1,0 +1,63 @@
+.navbar {
+    color: #7A14A8;
+    position: relative;
+    background-color: #fff;
+}
+  
+.navbar:before {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Adjust this value to control the depth of the shadow */
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to bottom, rgba(138, 43, 226, 0.5), transparent); /* Adjust color and transparency as needed */
+}
+  
+.table {
+    border-radius: 20px;
+    border-color: #7A14A8;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: small;
+    color: black; /* Mengubah warna font menjadi putih */
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px #000; /* Tambahkan shadow */
+    background-color: white; /* Ubah latar belakang menjadi ungu */
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    border: none; /* Hilangkan border dari semua sel */
+}
+
+.table th {
+    border-color: #7A14A8;
+    position: sticky;
+    top: 0;
+    background-color: #fff; 
+    border-bottom: solid 1px #7A14A8; /* Tambahkan border hanya pada baris bawah thead */
+}
+
+.table td {
+    padding: 8px;
+    border: none; /* Hilangkan border dari semua sel */
+    text-align: left; /* Atur sel data agar teksnya sejajar kiri */
+    border-bottom: solid 1px #7A14A8; /* Tambahkan border hanya pada baris bawah td */
+}
+
+
+.thead-purple {
+    color: #7A14A8; /* Mengubah warna font pada header menjadi putih */
+ /* Ubah latar belakang header menjadi ungu */
+}
+
+/* Tambahkan style untuk header tabel */
+.table th {
+    position: sticky;
+    top: 0;
+    background-color:#fff; /* Ubah latar belakang kepala tabel menjadi putih */
+   /* Pastikan header berada di atas konten */
+}
+

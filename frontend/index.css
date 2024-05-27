@@ -1,0 +1,13 @@
+/* Gaya untuk index.html */
+body {
+    background-color: #6f42c1; /* Ubah latar belakang menjadi ungu */
+    margin: 20px; /* Atur margin agar konten terlihat lebih kecil di segi kanan, kiri, dan atas */
+}
+
+iframe {
+    width: 100%;
+    height: calc(100% - 20px); /* Atur tinggi iframe agar tidak menutupi margin dari body */
+    border: none;
+    margin-bottom: 20px; /* Beri margin bawah untuk memberi ruang antara iframe */
+    border-radius: 8px; /* Tambahkan sedikit border radius untuk estetika */
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Buku</title>
+    <style>
+        /* CSS untuk tabel */
+        table {
+            border-radius: 20px;
+            border-color: #7A14A8;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: small;
+            color: black; /* Mengubah warna font menjadi putih */
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px #000; /* Tambahkan shadow */
+            background-color: white;
+        }
+
+        /* Gaya header tabel */
+        th, td {
+            border-bottom: solid 1px #7A14A8;
+            padding: 8px;
+            text-align: center; /* Mengatur teks di tengah */
+            
+        }
+
+        th {
+            background-color: #7A14A8;
+            color: #D9D9D9;
+        }
+
+        /* CSS untuk tombol */
+        .back-button, .recommend-button {
+            background-color: #f2f2f2;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .back-button svg, .recommend-button svg {
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .recommend-button-container {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Judul Buku</th>
+                <th>Penulis</th>
+                <th>Tahun Terbit</th>
+                <th>Total Dipinjam</th>
+            </tr>
+        </thead>
+        <tbody id="book-body">
+            <!-- Data buku akan dimasukkan di sini menggunakan JavaScript -->
+        </tbody>
+    </table>
+
+    <div class="button-container">
+        <!-- Tombol kembali dengan ikon kembali -->
+        <button class="back-button" onclick="goBack()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z"/>
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Kembali
+        </button>
+        
+        <!-- Tombol lihat rekomendasi dengan ikon next -->
+        <div class="recommend-button-container">
+            <button class="recommend-button" onclick="goToRecommendation()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+                Lihat Rekomendasi
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk mengarahkan ke halaman sebelumnya (halaman awal)
+        function goBack() {
+            window.history.back();
+        }
+
+        // Fungsi untuk mengarahkan ke halaman rekomendasi
+        function goToRecommendation() {
+            window.location.href = 'Rekomendasi/recom-mk.html';
+        }
+
+        // Fungsi untuk melakukan fetch data dari backend dan menambahkannya ke dalam tabel
+        async function fetchData() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/populer_mk');
+                const data = await response.json();
+
+                const tbody = document.getElementById('book-body');
+                tbody.innerHTML = ''; // Menghapus isi tbody sebelumnya
+
+                // Mengisi tabel dengan data yang diterima dari backend
+                data.forEach((book, index) => {
+                    const row = `<tr>
+                                    <td>${index + 1}</td>
+                                    <td>${book.judul}</td>
+                                    <td>${book.penulis}</td>
+                                    <td>${book.tahun_terbit}</td>
+                                    <td>${book.total_peminjam}</td>
+                                </tr>`;
+                    tbody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Memanggil fetchData saat halaman dimuat
+        window.onload = fetchData;
+    </script>
+</body>
+</html>
